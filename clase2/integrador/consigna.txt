@@ -1,0 +1,16 @@
+Crear una API para poder administrar usuarios.
+Debe funcionar como un ABM de la entidad usuarios.
+
+Especificaciones:
+
+Endpoints:
+    -{{base_url}}?action={{action}}
+    donde action = {add, get, getAll, delete, update}
+
+Entidades:
+    - Usuario: 
+        username, password (encryptado), name, email, createdAt, updatedAt
+
+Consigna y consideraciones:
+Todo el programa tiene que ser hecho con programacion OOP y tener un index.php como unico punto
+de entrada
