@@ -4,9 +4,16 @@ class UserDB {
 
     private $connection;
 
-    public function __construct($connection)
+    public function __construct()
     {
-        $this->connection = $connection;
+        global $config;
+
+        $this->connection = new Connection(
+            $config['database']['host'],
+            $config['database']['database'],
+            $config['database']['username'],
+            $config['database']['password']
+        );
     }
 
     public function add() {
@@ -14,7 +21,8 @@ class UserDB {
     }
 
     public function getAll(){
-
+        $result = $this->connection->query('select * from users');
+        return $result->fetchAll(PDO::FETCH_CLASS, 'User');
     }
 
     public function get() {

@@ -2,21 +2,22 @@
 
 class User {
 
+    private $id;
     private $username;
     private $password;
     private $name;
     private $email;
-    private $createdAt;
-    private $updatedAt;
+    private $created_at;
+    private $updated_at;
 
-    public function __construct($params)
-    {
-        foreach($params as $name => $value) {
-            if(property_exists('User', $name)) {
-                $this->$name = $value;
-            }
-        }
-    }
+    // public function __construct($params)
+    // {
+    //     foreach($params as $name => $value) {
+    //         if(property_exists('User', $name)) {
+    //             $this->$name = $value;
+    //         }
+    //     }
+    // }
 
     public function getUsername() {
         return $this->username;
@@ -35,11 +36,15 @@ class User {
     }
 
     public function getCreatedAt() {
-        return $this->createdAt;
+        return $this->created_at;
     }
 
     public function getUpdatedAt() {
-        return $this->updatedAt;
+        return $this->updated_at;
+    }
+
+    public function getId() {
+        return $this->id;
     }
 
 }

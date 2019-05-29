@@ -4,9 +4,9 @@ class UserController {
 
     private $userDB;
 
-    public function __construct($userDB)
+    public function __construct()
     {
-        $this->userDB = $userDB;
+        $this->userDB = new UserDB();
     }
 
     public function addHandler() {
@@ -14,7 +14,19 @@ class UserController {
     }
 
     public function getAllHandler() {
-        return ["a" => 1];
+        $users = $this->userDB->getAll();
+        
+        $usersTransform = [];
+        foreach($users as $user) {
+
+            $usersTransform[] = [
+                "id" => $user->getId(),
+                "username" => $user->getUsername(),
+                "email" => $user->getEmail()
+            ];
+        }
+
+        return ["users" => $usersTransform];
     }
 
     public function getHandler() {

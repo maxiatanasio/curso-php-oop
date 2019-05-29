@@ -1,6 +1,6 @@
 <?php
 
-$userController = new UserController($dependencies->get('UserDB'));
+$userController = new UserController();
 
 $routes = [
     'add' => function () use ($userController) {
